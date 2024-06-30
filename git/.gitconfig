@@ -1,0 +1,7 @@
+[user]
+	email = darius.sas@outlook.com
+	name = Darius Sas
+[core]
+	editor = nvim
+[init]
+	defaultBranch = master

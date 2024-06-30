@@ -1,0 +1,23 @@
+import = [
+	"~/.config/alacritty/themes/themes/iris.toml"
+]
+
+shell.program = "/bin/fish"
+shell.args = [ "-c", "/usr/bin/tmux"]
+
+
+[scrolling]
+multiplier = 100
+
+[selection]
+save_to_clipboard = true
+
+[font]
+normal.family = "JetBrainsMono NF"
+normal.style = "Regular"
+size = 13
+
+[window]
+startup_mode = "Fullscreen"
+
+
