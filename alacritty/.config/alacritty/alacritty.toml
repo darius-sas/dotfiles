@@ -20,4 +20,6 @@ size = 13
 [window]
 startup_mode = "Fullscreen"
 
-
+[cursor]
+style.blinking = "Always"
+blink_timeout = 0
