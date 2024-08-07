@@ -5,19 +5,9 @@ SETUVAR --export FZF_DEFAULT_OPTS_FILE:/home/fenn/\x2econfig/\x2efzfrc
 SETUVAR --export --path GOPATH:/home/fenn/\x2ego
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_jorgebucaran_2F_hydro_files:\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/hydro\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1ejorgebucaran/hydro
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR _hydro_git_10879:\x1d
-SETUVAR _hydro_git_11026:bmed\x2dimpact\u2022\x20
-SETUVAR _hydro_git_15012:bmed\x2dimpact\u2022\x20
-SETUVAR _hydro_git_4298:master\u2022\x20
-SETUVAR _hydro_git_4468:master\u2022\x20
-SETUVAR _hydro_git_4505:master\u2022\x20
-SETUVAR _hydro_git_5064:bmed\x2dimpact\u2022\x20
-SETUVAR _hydro_git_6242:\x1d
-SETUVAR _hydro_git_7498:bmed\x2dimpact\u2022\x20
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
@@ -47,4 +37,3 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/fenn/\x2esdkman/candidates/maven/current/bin\x1e/home/fenn/\x2esdkman/candidates/java/current/bin\x1e/opt/nvim\x2dlinux64/bin
-SETUVAR hydro_symbol_prompt:\x3e
