@@ -109,6 +109,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>n', '<cmd>:bnext<cr>', { desc = 'Move to next buffer' })
 vim.keymap.set('n', '<leader>p', '<cmd>:bprevious<cr>', { desc = 'Move to previous buffer' })
 vim.keymap.set('n', '<leader>d', '<cmd>:bdelete<cr>', { desc = 'Close current buffer' })
+vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = "Write buffer to disk" })
+vim.keymap.set('i', '<C-s>', '<cmd>:write<cr>', { desc = "Write buffer to disk" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
