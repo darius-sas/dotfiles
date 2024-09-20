@@ -32,7 +32,7 @@ vim.opt.showmode = false
 --   vim.opt.clipboard = 'unnamedplus'
 -- end)
 
-vim.cmd.colorscheme 'slate'
+vim.cmd.colorscheme 'retrobox'
 
 -- Enable break indent
 vim.opt.breakindent = true
