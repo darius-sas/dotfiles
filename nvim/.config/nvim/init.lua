@@ -32,8 +32,6 @@ vim.opt.showmode = false
 --   vim.opt.clipboard = 'unnamedplus'
 -- end)
 
-vim.cmd.colorscheme 'retrobox'
-
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -749,6 +747,15 @@ require('lazy').setup({
   --  vim.cmd.hi 'Comment gui=none'
   -- end,
   -- },
+
+  {
+    -- 'sainnhe/everforest',
+    'rafi/awesome-vim-colorschemes',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'afterglow'
+    end
+  },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
