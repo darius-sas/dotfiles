@@ -13,9 +13,9 @@ multiplier = 100
 save_to_clipboard = true
 
 [font]
-normal.family = "JetBrainsMono NF"
+normal.family = "0xProto Nerd Font Mono"
 normal.style = "Regular"
-size = 13
+size = 14
 
 [window]
 startup_mode = "Fullscreen"
