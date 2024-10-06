@@ -209,11 +209,11 @@ require('lazy').setup({
       }
     end,
   },
-  
+
   -- REPL
   {
     'Vigemus/iron.nvim',
-    tag = "v3.0",
+    tag = 'v3.0',
     config = function()
       vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
       vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
@@ -221,21 +221,21 @@ require('lazy').setup({
       vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
     end,
     keymaps = {
-      send_motion = "<space>sc",
-      visual_send = "<space>sc",
-      send_file = "<space>sf",
-      send_line = "<space>sl",
-      send_paragraph = "<space>sp",
-      send_until_cursor = "<space>su",
-      send_mark = "<space>sm",
-      mark_motion = "<space>mc",
-      mark_visual = "<space>mc",
-      remove_mark = "<space>md",
-      cr = "<space>s<cr>",
-      interrupt = "<space>s<space>",
-      exit = "<space>sq",
-      clear = "<space>cl",
-    }
+      send_motion = '<space>sc',
+      visual_send = '<space>sc',
+      send_file = '<space>sf',
+      send_line = '<space>sl',
+      send_paragraph = '<space>sp',
+      send_until_cursor = '<space>su',
+      send_mark = '<space>sm',
+      mark_motion = '<space>mc',
+      mark_visual = '<space>mc',
+      remove_mark = '<space>md',
+      cr = '<space>s<cr>',
+      interrupt = '<space>s<space>',
+      exit = '<space>sq',
+      clear = '<space>cl',
+    },
   },
   -- NOTE: Plugins can specify dependencies.
   --
@@ -353,7 +353,7 @@ require('lazy').setup({
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
-    enabled = false,
+    enabled = true,
     ft = 'lua',
     opts = {
       library = {
@@ -366,13 +366,14 @@ require('lazy').setup({
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
-    enabled = false,
+    cmd = 'LspStart', -- Start only when running LspStart
+    enabled = true,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
+      'nvim-telescope/telescope.nvim',
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
