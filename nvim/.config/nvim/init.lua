@@ -107,9 +107,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>n', '<cmd>:bnext<cr>', { desc = 'Move to next buffer' })
 vim.keymap.set('n', '<leader>p', '<cmd>:bprevious<cr>', { desc = 'Move to previous buffer' })
 vim.keymap.set('n', '<leader>d', '<cmd>:bdelete<cr>', { desc = 'Close current buffer' })
-vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = "Write buffer to disk" })
-vim.keymap.set('i', '<C-s>', '<cmd>:write<cr><Esc>', { desc = "Write buffer to disk" })
+vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = 'Write buffer to disk' })
+vim.keymap.set('i', '<C-s>', '<cmd>:write<cr><Esc>', { desc = 'Write buffer to disk' })
+vim.keymap.set('n', 'gd', '<C-]>', { desc = 'Go to definition (ctag)' })
 
+vim.api.nvim_create_user_command('Quit', ':quit', { desc = 'Quit buffer' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -174,6 +176,14 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+  },
+
+  {
+    'tpope/vim-vinegar',
+    config = function()
+      -- Relative line numbers in netrw
+      vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
+    end
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -755,7 +765,7 @@ require('lazy').setup({
     priority = 1000,
     init = function()
       vim.cmd.colorscheme 'afterglow'
-    end
+    end,
   },
 
   -- Highlight todo, notes, etc in comments
