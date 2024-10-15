@@ -13,8 +13,8 @@ multiplier = 100
 save_to_clipboard = true
 
 [font]
-normal.family = "0xProto Nerd Font Mono"
-normal.style = "Regular"
+normal.family = "VictorMono NF"
+normal.style = "Bold"
 size = 14
 
 [window]

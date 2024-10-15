@@ -764,7 +764,8 @@ require('lazy').setup({
     'rafi/awesome-vim-colorschemes',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'afterglow'
+      vim.cmd.colorscheme 'vim'
+      vim.cmd.highlight 'SignColumn guibg=Black'
     end,
   },
 
