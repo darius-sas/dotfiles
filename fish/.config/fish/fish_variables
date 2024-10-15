@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --path CDPATH:/home/fenn/projects\x1e/home/fenn\x1e/home/fenn/projects\x1e/home/fenn\x1e\x2e
 SETUVAR FZF_DEFAULT_OPTS_FILE:/home/fenn/\x2econfig/\x2efzfrc
 SETUVAR --export --path GOPATH:/home/fenn/\x2ego
 SETUVAR __fish_initialized:3100
