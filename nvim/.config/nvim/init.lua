@@ -178,12 +178,13 @@ require('lazy').setup({
     },
   },
 
+  -- Quality of life for netrw
   {
     'tpope/vim-vinegar',
     config = function()
       -- Relative line numbers in netrw
-      vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
-    end
+      vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -766,6 +767,7 @@ require('lazy').setup({
     init = function()
       vim.cmd.colorscheme 'vim'
       vim.cmd.highlight 'SignColumn guibg=Black'
+      vim.cmd.highlight 'WhichKeyNormal guibg=Black'
     end,
   },
 
