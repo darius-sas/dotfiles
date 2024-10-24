@@ -768,6 +768,7 @@ require('lazy').setup({
       vim.cmd.colorscheme 'vim'
       vim.cmd.highlight 'SignColumn guibg=Black'
       vim.cmd.highlight 'WhichKeyNormal guibg=Black'
+      vim.cmd.highlight 'Pmenu guibg=Grey40'
     end,
   },
 
