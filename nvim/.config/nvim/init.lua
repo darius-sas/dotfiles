@@ -74,6 +74,11 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Use Alt, jk and kj to return to Normal mode
+vim.keymap.set({'i', 'v'}, '<Alt>', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('i', 'kj', '<Esc>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -765,10 +770,12 @@ require('lazy').setup({
     'rafi/awesome-vim-colorschemes',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'vim'
-      vim.cmd.highlight 'SignColumn guibg=Black'
-      vim.cmd.highlight 'WhichKeyNormal guibg=Black'
-      vim.cmd.highlight 'Pmenu guibg=Grey40'
+      vim.cmd.colorscheme 'github'
+      if vim.cmd.colorscheme == 'vim' then
+        vim.cmd.highlight 'SignColumn guibg=Black'
+        vim.cmd.highlight 'WhichKeyNormal guibg=Black'
+        vim.cmd.highlight 'Pmenu guibg=Grey40'
+      end
     end,
   },
 
