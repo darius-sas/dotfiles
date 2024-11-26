@@ -76,8 +76,8 @@ vim.opt.scrolloff = 10
 
 -- Use Alt, jk and kj to return to Normal mode
 vim.keymap.set({'i', 'v'}, '<Alt>', '<Esc>')
-vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc><cmd>:w<CR>')
+vim.keymap.set('i', 'kj', '<Esc><cmd>:w<CR>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -225,33 +225,16 @@ require('lazy').setup({
       }
     end,
   },
-
-  -- REPL
   {
-    'Vigemus/iron.nvim',
-    tag = 'v3.0',
+    "preservim/vimux"
+  },
+  {
+    "jtdowney/vimux-cargo",
     config = function()
-      vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
-      vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
-      vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-      vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
-    end,
-    keymaps = {
-      send_motion = '<space>sc',
-      visual_send = '<space>sc',
-      send_file = '<space>sf',
-      send_line = '<space>sl',
-      send_paragraph = '<space>sp',
-      send_until_cursor = '<space>su',
-      send_mark = '<space>sm',
-      mark_motion = '<space>mc',
-      mark_visual = '<space>mc',
-      remove_mark = '<space>md',
-      cr = '<space>s<cr>',
-      interrupt = '<space>s<space>',
-      exit = '<space>sq',
-      clear = '<space>cl',
-    },
+      vim.keymap.set('n', '<leader>ct', '<cmd>:wa <CR> :CargoUnitTestFocused<CR>', { desc = 'Run [c]argo unit [t]est above current line' })
+      vim.keymap.set('n', '<leader>cf', '<cmd>:wa <CR> :CargoUnitTestCurrentFile<CR>', { desc = 'Run [c]argo unit tests current [f]ile' })
+      vim.keymap.set('n', '<leader>ca', '<cmd>:wa <CR> :CargoTestAll<CR>', { desc = 'Run [c]argo [a]ll unit tests' })
+    end
   },
   -- NOTE: Plugins can specify dependencies.
   --
@@ -770,7 +753,7 @@ require('lazy').setup({
     'rafi/awesome-vim-colorschemes',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'github'
+      vim.cmd.colorscheme 'ayu'
       if vim.cmd.colorscheme == 'vim' then
         vim.cmd.highlight 'SignColumn guibg=Black'
         vim.cmd.highlight 'WhichKeyNormal guibg=Black'
