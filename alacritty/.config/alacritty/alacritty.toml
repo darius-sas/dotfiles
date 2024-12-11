@@ -1,5 +1,5 @@
 import = [
-	"~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+	"~/.config/alacritty/themes/themes/hyper.toml"
 ]
 
 shell.program = "/bin/fish"
@@ -14,7 +14,8 @@ save_to_clipboard = true
 
 [font]
 normal.family = "VictorMono NF"
-size = 14
+normal.style = "Bold"
+size = 12
 
 [window]
 # startup_mode = "Fullscreen"

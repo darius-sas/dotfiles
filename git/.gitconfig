@@ -7,3 +7,5 @@
 	defaultBranch = master
 [pull]
 	rebase = false
+[alias]
+	adog = log --all --decorate --oneline --graph
