@@ -183,6 +183,19 @@ require('lazy').setup({
     },
   },
 
+  -- Smooth scrolling
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      easing = 'linear',
+      duration_multiplier = 0.4
+    }
+  },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+    },
+  },
   -- Quality of life for netrw
   {
     'tpope/vim-vinegar',
