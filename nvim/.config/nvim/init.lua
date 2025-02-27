@@ -761,20 +761,27 @@ require('lazy').setup({
   -- end,
   -- },
 
+  -- {
+  --   -- 'sainnhe/everforest',
+  --   'rafi/awesome-vim-colorschemes',
+  --   priority = 1000,
+  --   init = function()
+  --     vim.cmd.colorscheme 'ayu'
+  --     if vim.cmd.colorscheme == 'vim' then
+  --       vim.cmd.highlight 'SignColumn guibg=Black'
+  --       vim.cmd.highlight 'WhichKeyNormal guibg=Black'
+  --       vim.cmd.highlight 'Pmenu guibg=Grey40'
+  --     end
+  --   end,
+  -- },
   {
-    -- 'sainnhe/everforest',
-    'rafi/awesome-vim-colorschemes',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'ayu'
-      if vim.cmd.colorscheme == 'vim' then
-        vim.cmd.highlight 'SignColumn guibg=Black'
-        vim.cmd.highlight 'WhichKeyNormal guibg=Black'
-        vim.cmd.highlight 'Pmenu guibg=Grey40'
-      end
-    end,
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+      vim.cmd("highlight Normal guibg=#181818")
+    end
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -890,5 +897,6 @@ require('lazy').setup({
   },
 })
 
+-- vim.highlight "ctermbg='#181818'"
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,7 +1,11 @@
 [general]
 import = [
-	"~/.config/alacritty/themes/themes/aura.toml"
+	#	"~/.config/alacritty/themes/themes/aura.toml"
+	"~/.config/alacritty/themes/themes/rose-pine.toml"
 ]
+
+[colors]
+primary.background = "#181818"
 
 [scrolling]
 multiplier = 255
@@ -25,6 +29,5 @@ blink_timeout = 0
 
 
 [terminal]
-
 shell.program = "/bin/fish"
 shell.args = [ "-c", "/usr/bin/tmux"]

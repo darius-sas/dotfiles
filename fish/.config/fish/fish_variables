@@ -4,6 +4,7 @@ SETUVAR --path CDPATH:/home/fenn/projects\x1e/home/fenn\x1e/home/fenn/projects\x
 SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dwrap\x20\x2d\x2dpreview\x20\x22bat\x20\x2d\x2dcolor\x3dalways\x20\x2d\x2dstyle\x3dnumbers\x20\x2d\x2dline\x2drange\x3d\x3a500\x20\x7b\x7d\x22
 SETUVAR FZF_DEFAULT_OPTS_FILE:/home/fenn/\x2econfig/\x2efzfrc
 SETUVAR --export --path GOPATH:/home/fenn/\x2ego
+SETUVAR --export PYENV_ROOT:/home/fenn/\x2epyenv
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
@@ -38,4 +39,4 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/fenn/\x2esdkman/candidates/maven/current/bin\x1e/home/fenn/\x2esdkman/candidates/java/current/bin\x1e/opt/nvim\x2dlinux64/bin
+SETUVAR fish_user_paths:/home/fenn/\x2elocal/bin\x1e/home/fenn/\x2epyenv/bin\x1e/home/fenn/\x2esdkman/candidates/maven/current/bin\x1e/home/fenn/\x2esdkman/candidates/java/current/bin\x1e/opt/nvim\x2dlinux64/bin
