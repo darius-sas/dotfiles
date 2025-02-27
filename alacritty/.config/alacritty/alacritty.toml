@@ -1,25 +1,30 @@
+[general]
 import = [
-	"~/.config/alacritty/themes/themes/hyper.toml"
+	"~/.config/alacritty/themes/themes/aura.toml"
 ]
 
-shell.program = "/bin/fish"
-shell.args = [ "-c", "/usr/bin/tmux"]
-
-
 [scrolling]
-multiplier = 100
+multiplier = 255
 
 [selection]
 save_to_clipboard = true
 
 [font]
-normal.family = "VictorMono NF"
-normal.style = "Bold"
-size = 12
+normal.family = "UbuntuMono Nerd Font"
+#normal.style = "Bold"
+size = 17
 
 [window]
 # startup_mode = "Fullscreen"
+dimensions.columns = 95
+dimensions.lines = 35
 
 [cursor]
 style.blinking = "Always"
 blink_timeout = 0
+
+
+[terminal]
+
+shell.program = "/bin/fish"
+shell.args = [ "-c", "/usr/bin/tmux"]
