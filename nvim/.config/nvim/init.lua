@@ -402,7 +402,7 @@ require('lazy').setup({
       -- and language tooling communicate in a standardized fashion.
       --
       -- In general, you have a "server" which is some tool built to understand a particular
-      -- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
+      -- language (such as `gopls`, `lua_ls`, `nust_analyzer`, etc.). These Language Servers
       -- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
       -- processes that communicate with some "client" - in this case, Neovim!
       --
@@ -532,8 +532,25 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
-        -- rust_analyzer = {},
+        denols = {
+          root_dir = require("lspconfig").util.root_pattern({"deno.json", "deno.jsonc"}),
+          single_file_support = false,
+          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+          settings = {
+            deno = {
+              enable = true,
+              suggest = {
+                imports = {
+                  hosts = {
+                    ["https://deno.land"] = true
+                  }
+                }
+              }
+            }
+          }
+        },
+        pyright = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -557,6 +574,9 @@ require('lazy').setup({
             },
           },
         },
+      }
+      vim.g.markdown_fenced_languages = {
+        "ts=typescript"
       }
 
       -- Ensure the servers and tools above are installed
