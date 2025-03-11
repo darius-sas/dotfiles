@@ -800,6 +800,7 @@ require('lazy').setup({
     config = function()
       vim.cmd("colorscheme rose-pine")
       vim.cmd("highlight Normal guibg=#181818")
+      vim.cmd("highlight NormalNC guibg=#181818")
       vim.cmd("highlight NormalFloat guibg=#181818")
     end
   },
