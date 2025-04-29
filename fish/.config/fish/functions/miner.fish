@@ -1,3 +1,3 @@
 function miner
-/home/fenn/projects/impact/impact-repo-miner/target/release/cli $argv
+/home/fenn/projects/impact-2/impact-repo-miner-2/target/release/miner $argv
 end
