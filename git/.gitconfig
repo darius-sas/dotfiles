@@ -9,3 +9,5 @@
 	rebase = false
 [alias]
 	adog = log --all --decorate --oneline --graph
+	co = checkout
+	cm = commit --message
