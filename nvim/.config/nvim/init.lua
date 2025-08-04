@@ -182,7 +182,24 @@ require('lazy').setup({
       },
     },
   },
-
+  -- Live norm and global
+  {
+    "smjonas/live-command.nvim",
+    config = function()
+      require("live-command").setup({
+        enable_highlighting = true,
+        inline_highlighting = true,
+        hl_groups = {
+          insertion = "DiffAdd",
+          deletion = "DiffDelete",
+          change = "DiffChange",
+        },
+        commands = {
+          Norm = { cmd = "norm" }
+        }
+      })
+    end,
+  },
   -- Smooth scrolling
   {
     "karb94/neoscroll.nvim",
@@ -798,11 +815,20 @@ require('lazy').setup({
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
-      vim.cmd("colorscheme rose-pine")
-      vim.cmd("highlight Normal guibg=#181818")
-      vim.cmd("highlight NormalNC guibg=#181818")
-      vim.cmd("highlight NormalFloat guibg=#181818")
+      -- vim.cmd("colorscheme rose-pine-main")
+      -- vim.cmd("highlight Normal guibg=#181818")
+      -- vim.cmd("highlight NormalNC guibg=#181818")
+      -- vim.cmd("highlight NormalFloat guibg=#181818")
     end
+  },
+  {
+  "vague2k/vague.nvim",
+  config = function()
+    -- NOTE: you do not need to call setup if you don't want to.
+    require("vague").setup({
+      vim.cmd("colorscheme vague")
+    })
+  end
   },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },

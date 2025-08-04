@@ -1,11 +1,15 @@
+[env]
+TERM = "screen-256color"
+
 [general]
 import = [
 	#	"~/.config/alacritty/themes/themes/aura.toml"
-	"~/.config/alacritty/themes/themes/rose-pine.toml"
+	#"~/.config/alacritty/themes/themes/blood_moon.toml"
+	"~/.config/alacritty/themes/themes/github_dark_default.toml"
 ]
 
 [colors]
-primary.background = "#181818"
+primary.background = '#141415'
 
 [scrolling]
 multiplier = 255
@@ -16,7 +20,7 @@ save_to_clipboard = true
 [font]
 normal.family = "UbuntuMono Nerd Font"
 #normal.style = "Bold"
-size = 14
+size = 18
 
 [window]
 # startup_mode = "Fullscreen"
