@@ -17,6 +17,7 @@ vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
+vim.opt.fillchars:append({ eob='~' })
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -78,6 +79,8 @@ vim.opt.scrolloff = 10
 vim.keymap.set({'i', 'v'}, '<Alt>', '<Esc>')
 vim.keymap.set('i', 'jk', '<Esc><cmd>:w<CR>')
 vim.keymap.set('i', 'kj', '<Esc><cmd>:w<CR>')
+
+vim.keymap.set('n', 'G', 'Gzz')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -824,10 +827,10 @@ require('lazy').setup({
   {
   "vague2k/vague.nvim",
   config = function()
-    -- NOTE: you do not need to call setup if you don't want to.
     require("vague").setup({
-      vim.cmd("colorscheme vague")
     })
+    vim.cmd("colorscheme vague")
+    vim.cmd("highlight FloatBorder guifg=#181818")
   end
   },
   -- Highlight todo, notes, etc in comments
