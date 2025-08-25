@@ -1,1 +1,0 @@
-source "/home/fenn/.deno/env.fish"

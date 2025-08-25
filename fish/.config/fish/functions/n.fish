@@ -1,5 +1,5 @@
 function n
-set dst (jump hint $argv)
-cd $dst
-nvim .
+    set dst (z -e $argv)
+    cd $dst
+    nvim .
 end
