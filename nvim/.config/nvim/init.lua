@@ -25,14 +25,6 @@ vim.opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
--- vim.schedule(function()
---   vim.opt.clipboard = 'unnamedplus'
--- end)
-
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -82,6 +74,9 @@ vim.keymap.set('i', 'kj', '<Esc><cmd>:w<CR>')
 
 vim.keymap.set('n', 'G', 'Gzz')
 
+vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
+vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -97,7 +92,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
+-- Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
@@ -114,12 +109,23 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<leader>n', '<cmd>:bnext<cr>', { desc = 'Move to next buffer' })
 vim.keymap.set('n', '<leader>p', '<cmd>:bprevious<cr>', { desc = 'Move to previous buffer' })
-vim.keymap.set('n', '<leader>d', '<cmd>:bdelete<cr>', { desc = 'Close current buffer' })
+vim.keymap.set('n', '<leader>d', '<cmd>:BufferDelete<cr>', { desc = 'Close current buffer' })
 vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = 'Write buffer to disk' })
 vim.keymap.set('i', '<C-s>', '<cmd>:write<cr><Esc>', { desc = 'Write buffer to disk' })
 vim.keymap.set('n', 'gd', '<C-]>', { desc = 'Go to definition (ctag)' })
 
 vim.api.nvim_create_user_command('Quit', ':quit', { desc = 'Quit buffer' })
+
+-- Override :bd so it won't close the window
+vim.api.nvim_create_user_command('BufferDelete', function(opts)
+  local bufnr = vim.api.nvim_get_current_buf()
+  -- Jump to previous buffer first
+  vim.cmd("bp")
+  -- Then delete the old one
+  vim.cmd("bd" .. (opts.args ~= "" and " " .. opts.args or " " .. bufnr))
+end, { nargs = "?" })
+vim.cmd("command! -bang -nargs=? Bd BufferDelete <args>")
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -204,18 +210,18 @@ require('lazy').setup({
     end,
   },
   -- Smooth scrolling
-  {
-    "karb94/neoscroll.nvim",
-    opts = {
-      easing = 'linear',
-      duration_multiplier = 0.4
-    }
-  },
-  {
-    "sphamba/smear-cursor.nvim",
-    opts = {
-    },
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   opts = {
+  --     easing = 'linear',
+  --     duration_multiplier = 0.4
+  --   }
+  -- },
+  -- {
+  --   "sphamba/smear-cursor.nvim",
+  --   opts = {
+  --   },
+  -- },
   -- Quality of life for netrw
   {
     'tpope/vim-vinegar',
@@ -830,8 +836,8 @@ require('lazy').setup({
   config = function()
     require("vague").setup({
     })
-    vim.cmd("colorscheme vague")
-    vim.cmd("highlight FloatBorder guifg=#181818")
+    -- vim.cmd("colorscheme vague")
+    -- vim.cmd("highlight FloatBorder guifg=#181818")
   end
   },
   -- Highlight todo, notes, etc in comments
@@ -948,7 +954,7 @@ require('lazy').setup({
     },
   },
 })
-
+vim.cmd("colorscheme minispring")
 -- vim.highlight "ctermbg='#181818'"
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
