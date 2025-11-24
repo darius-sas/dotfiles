@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR AUTO_VENV_HIDE_DETAILS:enabled
 SETUVAR --path CDPATH:/home/fenn/projects\x1e/home/fenn\x1e/home/fenn/projects\x1e/home/fenn\x1e\x2e
 SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dwrap\x20\x2d\x2dpreview\x20\x22bat\x20\x2d\x2dcolor\x3dalways\x20\x2d\x2dstyle\x3dnumbers\x20\x2d\x2dline\x2drange\x3d\x3a500\x20\x7b\x7d\x22
 SETUVAR FZF_DEFAULT_OPTS_FILE:/home/fenn/\x2econfig/\x2efzfrc
@@ -14,7 +15,8 @@ SETUVAR __fish_initialized:3800
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:\x7e/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e\x7e/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1edanhper/fish\x2dssh\x2dagent
+SETUVAR _fisher_nakulj_2F_auto_2D_venv_files:\x7e/\x2econfig/fish/conf\x2ed/venv\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1edanhper/fish\x2dssh\x2dagent\x1enakulj/auto\x2dvenv
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:brblack
