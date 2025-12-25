@@ -210,16 +210,17 @@ require('lazy').setup({
     end,
   },
   -- Smooth scrolling
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   opts = {
-  --     easing = 'linear',
-  --     duration_multiplier = 0.4
-  --   }
-  -- },
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      easing = 'linear',
+      duration_multiplier = 0.3
+    }
+  },
   -- {
   --   "sphamba/smear-cursor.nvim",
   --   opts = {
+  --     stiffness=0.8
   --   },
   -- },
   -- Quality of life for netrw
@@ -836,8 +837,8 @@ require('lazy').setup({
   config = function()
     require("vague").setup({
     })
-    -- vim.cmd("colorscheme vague")
-    -- vim.cmd("highlight FloatBorder guifg=#181818")
+    vim.cmd("colorscheme vague")
+
   end
   },
   -- Highlight todo, notes, etc in comments
@@ -954,7 +955,25 @@ require('lazy').setup({
     },
   },
 })
-vim.cmd("colorscheme minispring")
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f38ba8", bg = "#1e1e2e" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e2e" })
+
+    -- LSP windows with borders
+    vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+
+    -- Diagnostics floats
+    vim.diagnostic.config({
+      float = { border = "single" },
+    })
+  end,
+})
 -- vim.highlight "ctermbg='#181818'"
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
