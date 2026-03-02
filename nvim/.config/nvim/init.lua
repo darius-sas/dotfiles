@@ -102,7 +102,7 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
@@ -113,6 +113,11 @@ vim.keymap.set('n', '<leader>d', '<cmd>:BufferDelete<cr>', { desc = 'Close curre
 vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = 'Write buffer to disk' })
 vim.keymap.set('i', '<C-s>', '<cmd>:write<cr><Esc>', { desc = 'Write buffer to disk' })
 vim.keymap.set('n', 'gd', '<C-]>', { desc = 'Go to definition (ctag)' })
+vim.keymap.set('x', 'p', 'P', { desc = 'Paste without yanking (Visual mode)' })
+vim.keymap.set("n", "d", '"_d', { desc = 'Delete without yanking (Normal mode)'})
+vim.keymap.set("v", "d", '"_d', { desc = 'Delete without yanking (Visual mode)'})
+vim.keymap.set("n", "x", '"_x', { desc = 'Delete without yanking (Normal mode)'})
+vim.keymap.set("n", "D", '"_D', { desc = 'Delete without yanking (Visual mode)'})
 
 vim.api.nvim_create_user_command('Quit', ':quit', { desc = 'Quit buffer' })
 
@@ -956,6 +961,7 @@ require('lazy').setup({
   },
 })
 
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e2e" })
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f38ba8", bg = "#1e1e2e" })
