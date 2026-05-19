@@ -411,7 +411,6 @@ require('lazy').setup({
     "williamboman/mason.nvim",
     cmd = { "Mason", "LspStart", "LspStop", "LspRestart", "LspInfo" },
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "nvim-telescope/telescope.nvim",
       { "j-hui/fidget.nvim", opts = {} },
