@@ -114,10 +114,10 @@ vim.keymap.set('n', '<C-s>', '<cmd>:write<cr>', { desc = 'Write buffer to disk' 
 vim.keymap.set('i', '<C-s>', '<cmd>:write<cr><Esc>', { desc = 'Write buffer to disk' })
 vim.keymap.set('n', 'gd', '<C-]>', { desc = 'Go to definition (ctag)' })
 vim.keymap.set('x', 'p', 'P', { desc = 'Paste without yanking (Visual mode)' })
-vim.keymap.set("n", "d", '"_d', { desc = 'Delete without yanking (Normal mode)'})
-vim.keymap.set("v", "d", '"_d', { desc = 'Delete without yanking (Visual mode)'})
-vim.keymap.set("n", "x", '"_x', { desc = 'Delete without yanking (Normal mode)'})
-vim.keymap.set("n", "D", '"_D', { desc = 'Delete without yanking (Visual mode)'})
+-- vim.keymap.set("n", "d", '"_d', { desc = 'Delete without yanking (Normal mode)'})
+-- vim.keymap.set("v", "d", '"_d', { desc = 'Delete without yanking (Visual mode)'})
+-- vim.keymap.set("n", "x", '"_x', { desc = 'Delete without yanking (Normal mode)'})
+-- vim.keymap.set("n", "D", '"_D', { desc = 'Delete without yanking (Visual mode)'})
 
 vim.api.nvim_create_user_command('Quit', ':quit', { desc = 'Quit buffer' })
 
@@ -291,7 +291,7 @@ require('lazy').setup({
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
+    branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -886,35 +886,17 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-  { -- Highlight, edit, and navigate code
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'rust', 'python', 'r' },
-      -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true },
     },
-    config = function(_, opts)
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
-
-      -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
-      --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    end,
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
