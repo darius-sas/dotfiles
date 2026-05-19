@@ -480,38 +480,27 @@ require('lazy').setup({
       require("mason").setup()
 
       local servers = {
-        denols = {
-          cmd = { "deno", "lsp" },
-          root_markers = { "deno.json", "deno.jsonc" },
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
+        basedpyright = {
+          cmd = { "basedpyright-langserver", "--stdio" },
+          root_markers = {
+            "pyproject.toml",
+            "setup.py",
+            "setup.cfg",
+            "requirements.txt",
+            "Pipfile",
+            ".git",
           },
-          single_file_support = false,
+          filetypes = { "python" },
           settings = {
-            deno = {
-              enable = true,
-              suggest = {
-                imports = {
-                  hosts = {
-                    ["https://deno.land"] = true,
-                  },
-                },
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
               },
             },
           },
         },
-
-        pyright = {
-          cmd = { "pyright-langserver", "--stdio" },
-          root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
-          filetypes = { "python" },
-        },
-
         rust_analyzer = {
           cmd = { "rust-analyzer" },
           root_markers = { "Cargo.toml", "rust-project.json", ".git" },
@@ -532,17 +521,12 @@ require('lazy').setup({
         },
       }
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
       )
-
       require("mason-tool-installer").setup({
         ensure_installed = {
-          "deno",
-          "pyright",
+          "basedpyright",
           "rust-analyzer",
           "lua-language-server",
           "stylua",
